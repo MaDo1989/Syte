@@ -1,0 +1,120 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+
+    <style>
+        table {
+            width: 100%;
+/*            border: 1px solid green
+*/        }
+        th {
+            background-color: #732238;
+            color: #F2AD85
+        }
+        td {
+            text-align: center;
+            width: 25%
+        }
+
+        h4 {
+            color: #80BFB9;
+        }
+    </style>
+
+    <script src="https://cdn.syteapi.com/assets/imajs/imajs.js?a=9040&sig=5fbf830ee26bfd1fa565c427&languageCode=en_US" async></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+
+
+    <script>
+        window.addEventListener('syteapp_is_ready', function () { console.log("Syte is ready!") })
+    </script>
+
+    <script>
+
+        function moveBanner() {
+
+            let interval = null;
+            const elem = document.getElementById("logo");
+            let pos = 0;
+            clearInterval(interval);
+            interval = setInterval(move, 5);
+
+
+            function move() {
+                if (pos > 2000) {
+                    pos = 0;
+                    elem.style.right = "initial";
+                } else {
+                    pos++;
+                    elem.style.right = pos + "px";
+                }
+            }
+        };
+
+        function searchSKU() {
+            document.getElementById("temp").id = "syte-similar-items-container";
+            document.getElementById("syte-similar-items-container").setAttribute("data-sku", "swdress07200710499");
+        }
+
+    </script>
+
+</head>
+<body onload="moveBanner()">
+    <div id="container" style="position:relative; height:100%">
+        <!--<div id="camera" style="border:1px solid black; position:absolute;width:25%;">
+            <button href="javascript:void(0)" class="--syte-start-camera-upload" data-camera-button-placement="header"> Visual Search </button>
+        </div>
+        <div id="discovery" style="border:1px solid black; position:absolute; width:25%; left:250px">
+            <img src="../Images/dragonfly.jpg" />
+            <button class="syte-discovery" data-image-src="../Images/dragonfly.jpg" data-placement="main-image"> Discovery </button>
+        </div>
+    
+        <div style="position: fixed; height: 100px; width: 100%; top:500px">
+        <img id="logo" ; style="position: absolute; right: 0px; height: 80%;" src="../Images/syte.png" />
+         </div>-->
+
+        <div id="table">
+            <table>
+                <tr>
+                    <th>Camera</th>
+                    <th>Discovery</th>
+                    <th>Similar Items</th>
+                    <th>Shop the Look</th>
+                </tr>
+                <tr>
+                    <td id="camera">
+                        <h4>Click to upload a photo and search for similar items</h4>
+                        <button href="javascript:void(0)" class="--syte-start-camera-upload" data-camera-button-placement="header"> Visual Search </button>
+                    </td>
+                    <td id="discovery">
+                        <h4>Do you like this look? Click 'Discovery' to find similar items!</h4>
+                        <img src="../Images/dragonfly.jpg" />
+                        <button class="syte-discovery" data-image-src="../Images/dragonfly.jpg" data-placement="main-image"> Discovery </button>
+                    </td>
+                    <td id="similar">
+                        <div id="syte-similar-items-container" data-sku="swdress07200710499" />                        
+                    </td>
+                    <td id="look">
+                        <div id="syte-shop-the-look-container" data-sku="swdress07200710499"/>
+                    </td>
+                </tr>
+                <tr>
+                    <td></td>
+                    <td></td>
+                    <td>
+                        <h4>The selected SKU was not found</h4>
+                    </td>
+                    <td>
+                        <h4>The selected SKU was not found</h4>
+                    </td>
+                </tr>
+            </table>
+            <div id="banner" style="position: fixed; height: 100px; width: 100%; top:600px">
+                <img id="logo" style="position: absolute; right: 0px; height: 80%;" src="../Images/syte.png" />
+            </div>
+        </div>
+    </div>
+
+
+</body>
+</html>
