@@ -46,9 +46,11 @@
 
 
             function move() {
-                if (pos > 2000) {
+                var x = document.getElementById("logo").getBoundingClientRect().x;
+
+                if ((x + elem.clientWidth) < 0) {
                     pos = 0;
-                    elem.style.right = "initial";
+                    elem.style.right = (pos - elem.clientWidth) + "px";
                 } else {
                     pos++;
                     elem.style.right = pos + "px";
@@ -67,7 +69,6 @@
 <body onload="moveBanner()">
     <div id="container" style="position:relative; height:100%">
 
-        <!--<div id="table">-->
         <table>
             <tr>
                 <th>Camera</th>
@@ -108,10 +109,6 @@
                 </td>
             </tr>
         </table>
-        <!--<div id="banner" style="position: fixed; height: 100px; width: 100%; top:100px">
-        <img id="logo" style="position: absolute; right: 0px; height: 80%;" src="../Images/syte.png" />
-    </div>-->
-        <!-- </div> -->
     </div>
 
 
